@@ -38,7 +38,7 @@ namespace GamingWebsiteBE
                 var dbContext = scope.ServiceProvider.GetRequiredService<GamingDbContext>();
 
                 //DatabaseSeeder.SeedDatabase(dbContext);    // Call the DatabaseSeeder
-                DatabaseUpdater.UpdateDatabase(dbContext);   // Call the DatabaseUpdated
+                //DatabaseUpdater.UpdateDatabase(dbContext);   // Call the DatabaseUpdated
 
                 // Used to test queries, find better alternative
                 /*

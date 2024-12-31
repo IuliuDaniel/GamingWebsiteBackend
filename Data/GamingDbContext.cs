@@ -65,6 +65,7 @@ namespace GamingWebsiteBE.Data
             /* Changes to the initial database structures
              1) Created GamePlatform table to avoid duplicates in Game and Platform tables
                since one game can have multiple platforms and one platform can have multiple games
+             2) Create Images table to store screenshots and wallpapers
             */
              
             // GamePlatform - Game
