@@ -15,6 +15,16 @@ namespace GamingWebsiteBE
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Allow API access to the front-end only
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("SpecificOrigin", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200").AllowAnyMethod()
+                                                               .AllowAnyHeader();
+                });
+            });
+
             // Configure the database context to use SQL Server
             builder.Services.AddDbContext<GamingDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GamingDb")));
 
@@ -27,6 +37,8 @@ namespace GamingWebsiteBE
                 app.UseSwaggerUI();
             }
 
+            // Enable CORS
+            app.UseCors("SpecificOrigin");
             app.UseHttpsRedirection();
             app.UseAuthorization();
 

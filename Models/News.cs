@@ -1,4 +1,6 @@
-﻿namespace GamingWebsiteBE.Models
+﻿using System.Text.Json.Serialization;
+
+namespace GamingWebsiteBE.Models
 {
     // Define the database News table
     public class News
@@ -10,6 +12,7 @@
         public DateTime PublishedDate { get; set; }
 
         public int? GameId { get; set; } // Nullable since not all news may be related to a specific game
+        [JsonIgnore]
         public Game Game { get; set; } // Points to the Game class, navigation property
 
     }

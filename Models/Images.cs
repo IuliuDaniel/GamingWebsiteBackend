@@ -1,4 +1,6 @@
-﻿namespace GamingWebsiteBE.Models
+﻿using System.Text.Json.Serialization;
+
+namespace GamingWebsiteBE.Models
 {
     // Define the database Images table
     public class Images
@@ -7,6 +9,8 @@
         public string ImageUrl { get; set; }
 
         public int GameId { get; set; }
+
+        [JsonIgnore]
         public Game Game { get; set; } // Points to the Game class, navigation property
 
         public ImageType Type { get; set; }
